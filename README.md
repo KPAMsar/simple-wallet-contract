@@ -1,57 +1,204 @@
-# Sample Hardhat 3 Beta Project (`mocha` and `ethers`)
+# MainWallet
 
-This project showcases a Hardhat 3 Beta project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+A beginner-friendly Web3 wallet dApp built with Solidity, Hardhat, React, and ethers.js.
 
-To learn more about the Hardhat 3 Beta, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3 Beta](https://hardhat.org/hardhat3-beta-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+Users can:
 
-## Project Overview
+- Deposit ETH
+- Withdraw ETH
+- Connect MetaMask
+- View wallet interactions
+- Listen to blockchain events
 
-This example project includes:
+---
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+# Tech Stack
 
-## Usage
+## Smart Contract
 
-### Running Tests
+- Solidity
+- Hardhat
+- OpenZeppelin
 
-To run all the tests in the project, execute the following command:
+## Frontend
 
-```shell
-npx hardhat test
+- React
+- Vite
+- ethers.js
+
+## Wallet
+
+- MetaMask
+
+---
+
+# Project Structure
+
+```bash
+MainWallet/
+│
+├── contracts/
+│   └── SimpleWallet.sol
+│
+├── scripts/
+│   └── deploy.js
+│
+├── frontend/
+│   ├── src/
+│   └── package.json
+│
+├── hardhat.config.js
+│
+└── README.md
 ```
 
-You can also selectively run the Solidity or `mocha` tests:
+---
 
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
+# Features
+
+- ETH deposits
+- ETH withdrawals
+- Smart contract events
+- Real-time frontend updates
+- MetaMask integration
+
+---
+
+# Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/yourusername/mainwallet.git
 ```
 
-### Make a deployment to Sepolia
+---
 
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
+# Install Dependencies
 
-To run the deployment to a local chain:
-
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
+```bash
+npm install
 ```
 
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
+---
 
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
+# Compile Smart Contract
 
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
+```bash
+npx hardhat compile
 ```
 
-After setting the variable, you can run the deployment with the Sepolia network:
+---
 
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
+# Start Local Blockchain
+
+```bash
+npx hardhat node
 ```
+
+---
+
+# Deploy Contract
+
+```bash
+npx hardhat run scripts/deploy.js --network localhost
+```
+
+---
+
+# Frontend Setup
+
+Move into frontend:
+
+```bash
+cd frontend
+```
+
+Install packages:
+
+```bash
+npm install
+```
+
+Run frontend:
+
+```bash
+npm run dev
+```
+
+---
+
+# MetaMask Setup
+
+Add Hardhat Network:
+
+| Field | Value |
+|---|---|
+| Network Name | Hardhat |
+| RPC URL | http://127.0.0.1:8545 |
+| Chain ID | 31337 |
+| Currency Symbol | ETH |
+
+---
+
+# Import Test Account
+
+When running:
+
+```bash
+npx hardhat node
+```
+
+Hardhat provides test private keys.
+
+Import one into MetaMask for testing.
+
+DO NOT use these keys on mainnet.
+
+---
+
+# Smart Contract Events
+
+The project uses Solidity events:
+
+```solidity
+event Deposited(address indexed user, uint amount);
+```
+
+Frontend listens using ethers.js:
+
+```javascript
+contract.on("Deposited", callback)
+```
+
+---
+
+# Learning Goals
+
+This project teaches:
+
+- Solidity basics
+- Smart contract deployment
+- Events
+- MetaMask integration
+- ethers.js
+- Frontend/Web3 communication
+
+---
+
+# Future Improvements
+
+- ERC20 token support
+- Transaction history
+- User authentication
+- Multi-user wallet system
+- Dashboard UI
+- Network switching
+
+---
+
+# Author
+
+Shija Kpamsar Daniel
+
+Senior Software Engineer
